@@ -1,3 +1,4 @@
+
 import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -8,28 +9,28 @@ def plot_histogram(df, column):
     plt.title(f"Histogram: {column}")
     plt.xlabel(column)
     plt.ylabel("Częstość")
-    plt.grid(True)
     st.pyplot(plt.gcf())
 
 def plot_boxplot(df, column):
     plt.figure(figsize=(8, 6))
     sns.boxplot(data=df, x=column)
     plt.title(f"Boxplot: {column}")
-    plt.grid(True)
     st.pyplot(plt.gcf())
 
 def plot_bar(df, column):
     plt.figure(figsize=(10, 6))
-    sns.countplot(data=df, x=column, order=df[column].value_counts().index)
+    value_counts = df[column].value_counts()
+    sns.barplot(x=value_counts.index, y=value_counts.values)
     plt.title(f"Wykres słupkowy: {column}")
     plt.xlabel(column)
     plt.ylabel("Liczba wystąpień")
-    plt.grid(True)
+    plt.xticks(rotation=45)
     st.pyplot(plt.gcf())
 
-def plot_correlation_matrix(df):
-    plt.figure(figsize=(12, 8))
-    correlation_matrix = df.corr()
-    sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar=True)
-    plt.title("Macierz korelacji")
+def plot_scatterplot(df, x_column, y_column):
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(data=df, x=x_column, y=y_column)
+    plt.title(f"Wykres punktowy: {x_column} vs {y_column}")
+    plt.xlabel(x_column)
+    plt.ylabel(y_column)
     st.pyplot(plt.gcf())

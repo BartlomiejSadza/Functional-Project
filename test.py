@@ -1,6 +1,6 @@
 from utils.data_loader import load_data
 from utils.data_cleaning import remove_outliers, drop_missing_values, encode_categorical_column
-from utils.eda import podstawowe_statystyki, wizualizacja_korelacji, wizualizacja_rozkładu, analiza_relacji_targetu
+# from utils.eda import podstawowe_statystyki, wizualizacja_korelacji, wizualizacja_rozkładu, analiza_relacji_targetu
 
 file_path = "data/hotel_reservations.csv"
 df = load_data(file_path)
