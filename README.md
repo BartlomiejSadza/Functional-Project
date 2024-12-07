@@ -2,7 +2,7 @@
 
 **Autor**: Bartłomiej Sadza
 
-**Przedmiot**: Zaawansowane Programowanie w Pythonie
+**Przedmiot**: Zaawansowane Programowanie w Języku Python
 
 ## Opis projektu
 
