@@ -27,6 +27,22 @@ def plot_bar(df, column):
     plt.xticks(rotation=45)
     st.pyplot(plt.gcf())
 
+
+def plot_comparison(df, col1, col2):
+    # Grupowanie danych dla dwóch zmiennych
+    grouped = df.groupby([col1, col2]).size().reset_index(name='count')
+
+    # Tworzenie wykresu słupkowego z podziałem na kategorie
+    plt.figure(figsize=(12, 6))
+    sns.barplot(data=grouped, x=col1, y='count', hue=col2, palette="Set2")
+
+    plt.title(f"Porównanie {col1} z {col2}")
+    plt.xlabel(col1)
+    plt.ylabel("Liczba wystąpień")
+    plt.xticks(rotation=45)
+    plt.legend(title=col2)
+    st.pyplot(plt.gcf())
+
 def plot_scatterplot(df, x_column, y_column):
     plt.figure(figsize=(10, 6))
     sns.scatterplot(data=df, x=x_column, y=y_column)
